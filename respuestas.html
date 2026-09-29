@@ -1,0 +1,158 @@
+<!-- Joel Iván Juárez León -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Respuestas — Rosales 3D</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a140a;
+      color: #fff;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #ff6b6b;
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 12px rgba(255, 80, 80, 0.6);
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+
+    .pregunta {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 4px solid #d94a4a;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 18px;
+    }
+
+    .pregunta h2 {
+      color: #ff8a8a;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .pregunta p {
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    .pregunta ul {
+      color: #ddd;
+      font-size: 15px;
+      padding-left: 22px;
+      margin-top: 8px;
+    }
+
+    .pregunta ul li {
+      margin-bottom: 6px;
+    }
+
+    .volver {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 12px 30px;
+      background: #d94a4a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .volver:hover { background: #ff6b6b; }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Respuestas del Proyecto</h1>
+    <p class="subtitulo">Rosales 3D con viento y sol al norte — Joel Iván Juárez León</p>
+
+    <div class="pregunta">
+      <h2>1. ¿Qué tema representa tu visor 3D?</h2>
+      <p>Un <strong>jardín de rosales</strong> con 18 macetas que contienen modelos <code>.glb</code> de rosas rojas, ambientadas con un fondo de campo, viento suave y un sol al norte que proyecta sombras reales.</p>
+    </div>
+
+    <div class="pregunta">
+      <h2>2. ¿Qué objetos agregaste a la escena?</h2>
+      <ul>
+        <li>18 macetas (cilindros de barro)</li>
+        <li>3 capas de tierra (cilindros planos)</li>
+        <li>3 rosales rojos, morados y amarillos cargados desde archivos <code>.glb</code> (variedades A, B y C)</li>
+        <li>Suelo circular verde</li>
+        <li>Esfera gigante de fondo con textura de campo</li>
+        <li>Sol direccional visible a través de la iluminación y las sombras</li>
+      </ul>
+    </div>
+
+    <div class="pregunta">
+      <h2>3. ¿Qué información aparece al seleccionar?</h2>
+      <p>Al hacer clic sobre una <strong>maceta</strong> o sobre un <strong>rosal</strong>, el panel inferior derecho muestra:</p>
+      <ul>
+        <li>Nombre del objeto (Maceta, Rosal A, Rosal B o Rosal C)</li>
+        <li>Tipo (Cilindro o Modelo <code>.glb</code>)</li>
+        <li>Descripción breve de su función</li>
+      </ul>
+    </div>
+
+    <div class="pregunta">
+      <h2>4. ¿Cómo implementaste el raycasting?</h2>
+      <p>Con un <code>THREE.Raycaster</code> que se dispara al hacer clic. Convierto las coordenadas del mouse a un rango (-1, 1), llamo <code>raycaster.setFromCamera()</code> y luego <code>intersectObjects()</code> sobre la lista de objetos seleccionables (macetas y rosales). Cuando el rayo toca un mesh interno del rosal, subo por la jerarquía con <code>parent</code> hasta encontrar el objeto registrado, así el rosal completo se trata como una sola unidad seleccionable.</p>
+    </div>
+
+    <div class="pregunta">
+      <h2>5. ¿Qué controles agregaste?</h2>
+      <ul>
+        <li>Botón para <strong>reiniciar la cámara</strong> a su posición inicial</li>
+        <li>Slider para cambiar la <strong>intensidad del sol</strong></li>
+        <li>Selección por clic de macetas o rosales con panel informativo</li>
+        <li>Botón en la esquina superior derecha para ir a esta página de respuestas</li>
+      </ul>
+    </div>
+
+    <div class="pregunta">
+      <h2>6. ¿Qué modelo .glb usaste?</h2>
+      <p>Tres modelos de rosas rojas de Kenney (<em>Nature Kit</em>):</p>
+      <ul>
+        <li><code>flower_redA.glb</code></li>
+        <li><code>flower_redB.glb</code></li>
+        <li><code>flower_redC.glb</code></li>
+      </ul>
+      <p>Se cargan con <code>GLTFLoader</code> y se colocan encima de cada maceta.</p>
+    </div>
+
+    <div class="pregunta">
+      <h2>7. ¿Qué parte fue la más difícil?</h2>
+      <p>Ajustar la <strong>escala y posición</strong> de los modelos <code>.glb</code> para que quedaran justo encima de las macetas (los modelos de Kenney vienen muy pequeños). También fue reto coordinar la animación del viento con el raycasting: al rotar los rosales con seno y coseno, las sombras y la posición de clic se mueven, así que hubo que probar varias amplitudes hasta que se viera natural sin afectar la selección.</p>
+    </div>
+
+    <div class="pregunta">
+      <h2>8. ¿Cómo lo conectarías con PHP, FlightPHP y SQLite?</h2>
+      <p>Podría guardar la información de cada parte en una tabla SQLite y exponerla con FlightPHP mediante endpoints REST como <code>/api/rosales</code> o <code>/api/macetas</code>. Desde el navegador, en lugar de tener los datos hardcodeados en un objeto JS, haría <code>fetch('/api/rosales')</code> al cargar la página y llenaría el panel de información dinámicamente. Además, con un panel administrativo hecho en PHP podría permitir subir nuevos modelos <code>.glb</code>, cambiar colores o agregar más macetas al jardín sin tocar el código.</p>
+    </div>
+
+    <a href="index.html" class="volver">← Volver al visor 3D</a>
+  </div>
+
+</body>
+</html>

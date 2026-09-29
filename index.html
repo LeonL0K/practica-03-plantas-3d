@@ -1,0 +1,47 @@
+<!-- Joel Iván Juárez León -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica 03 — Rosales 3D</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header id="titulo">🌹 Rosales 3D — Joel León</header>
+
+  <a href="respuestas.html" id="btn-respuestas">📄 Respuestas</a>
+
+  <aside id="controles">
+    <h2>Controles</h2>
+    <button id="btn-camara">📷 Reiniciar cámara</button>
+    <button id="btn-ocultar-hojas">👁 Ocultar hojas</button>
+    <button id="btn-hojas-marchitas">🍂 Hojas marchitas</button>
+    <button id="btn-viento">💨 Detener viento</button>
+
+    <label for="luz">💡 Intensidad del sol</label>
+    <input type="range" id="luz" min="0" max="3" step="0.1" value="1.8" />
+    <span id="luz-valor">1.8</span>
+
+    <p class="ayuda">Haz clic sobre cualquier parte del jardín 🌹</p>
+  </aside>
+
+  <div id="info">
+    <h3 id="info-nombre">Selecciona una parte</h3>
+    <p><strong>Tipo:</strong> <span id="info-tipo">—</span></p>
+    <p><strong>Descripción:</strong> <span id="info-desc">Haz clic sobre una parte del jardín.</span></p>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

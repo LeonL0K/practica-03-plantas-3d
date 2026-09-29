@@ -1,0 +1,135 @@
+/* Joel Iván Juárez León */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #0a140a;
+  color: #fff;
+}
+
+canvas { display: block; }
+
+/* Título */
+#titulo {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffd4d4;
+  text-shadow: 0 0 12px rgba(255, 80, 80, 0.9);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Botón de respuestas (esquina superior derecha) */
+#btn-respuestas {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 18px;
+  background: #d94a4a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 11;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#btn-respuestas:hover {
+  background: #ff6b6b;
+}
+
+/* Menú de controles */
+#controles {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 230px;
+  background: rgba(30, 10, 10, 0.85);
+  border: 1px solid #d94a4a;
+  border-radius: 10px;
+  padding: 18px;
+  z-index: 10;
+}
+
+#controles h2 {
+  color: #ff6b6b;
+  font-size: 16px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+#controles button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  background: #3a1e1e;
+  color: #fff;
+  border: 1px solid #d94a4a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+#controles button:hover { background: #5a2e2e; }
+
+#controles label {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #ffb8b8;
+}
+
+#controles input[type="range"] {
+  width: 100%;
+  margin-top: 6px;
+}
+
+#luz-valor {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #ffb8b8;
+  margin-top: 4px;
+}
+
+.ayuda {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #ffd4d4;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Panel de información */
+#info {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 340px;
+  background: rgba(30, 10, 10, 0.9);
+  border: 1px solid #d94a4a;
+  border-radius: 10px;
+  padding: 18px 22px;
+  z-index: 10;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#info h3 {
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#info strong { color: #ffb8b8; }
